@@ -4,27 +4,12 @@ import { isCreatureType, hasKeyword, getEffectiveAttack, getEffectiveHealth } fr
 import { useGameState } from '../../game/GameContext.jsx';
 import CardPreview from './CardPreview.jsx';
 
-const factionColors = {
-  hunter: 'border-amber-600/70',
-  hell: 'border-red-800/70',
-  heaven: 'border-blue-500/70',
-  neutral: 'border-gray-500/70',
-  purgatory: 'border-green-700/70',
-};
-
-const factionGlows = {
-  hunter: 'shadow-amber-600/30',
-  hell: 'shadow-red-700/30',
-  heaven: 'shadow-blue-500/30',
-  neutral: 'shadow-gray-500/20',
-  purgatory: 'shadow-green-600/30',
-};
-
-const rarityBorders = {
-  common: '',
-  uncommon: 'ring-1 ring-gray-400/50',
-  rare: 'ring-1 ring-yellow-500/60',
-  legendary: 'ring-2 ring-yellow-400 animate-pulse-subtle',
+const factionAccent = {
+  hunter: '#b8860b',
+  hell: '#8b1a1a',
+  heaven: '#4a7ab5',
+  neutral: '#8a7a6a',
+  purgatory: '#4a6a3a',
 };
 
 export default function Card({
@@ -39,6 +24,7 @@ export default function Card({
   small = false,
 }) {
   const [showPreview, setShowPreview] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const state = useGameState();
 
   if (!card) return null;
@@ -48,110 +34,240 @@ export default function Card({
   const effectiveHealth = isCreature && isOnBattlefield ? getEffectiveHealth(card, state, playerId) : card.currentHealth ?? card.health;
   const isDamaged = isCreature && card.currentHealth < card.maxHealth;
 
-  const sizeClasses = small
-    ? 'w-[100px] h-[140px] text-[9px]'
-    : 'w-[120px] h-[170px] text-[10px]';
+  const w = small ? 110 : 140;
+  const h = small ? 154 : 200;
+
+  const hasImage = card.image && !imgError;
+  const typeLabel = card.type === 'hunter' ? 'HUNTER' : card.type === 'monster' ? 'MONSTER' : card.type === 'weapon' ? 'WEAPON' : card.type === 'spell' ? 'SPELL' : card.type === 'lore' ? 'LORE' : card.type.toUpperCase();
 
   return (
-    <div className="relative" onMouseEnter={() => setShowPreview(true)} onMouseLeave={() => setShowPreview(false)}>
+    <div
+      className="relative"
+      onMouseEnter={() => setShowPreview(true)}
+      onMouseLeave={() => setShowPreview(false)}
+    >
       <motion.div
-        className={`
-          ${sizeClasses} rounded-lg border-2 cursor-pointer select-none
-          flex flex-col overflow-hidden relative
-          bg-gradient-to-b from-[#1a1a2e] to-[#0f0f1a]
-          ${factionColors[card.faction] || 'border-gray-600'}
-          ${rarityBorders[card.rarity] || ''}
-          ${isPlayable ? `shadow-lg ${factionGlows[card.faction] || ''} brightness-110` : 'brightness-75 opacity-70'}
-          ${isSelected ? 'ring-2 ring-yellow-400 shadow-xl shadow-yellow-400/40 brightness-125 scale-105' : ''}
-          ${isValidTarget ? 'ring-2 ring-green-400 shadow-lg shadow-green-400/40 brightness-110' : ''}
-          ${isOnBattlefield && isPlayable ? 'brightness-100 opacity-100' : ''}
-          transition-all duration-150
-        `}
+        className="cursor-pointer select-none relative"
+        style={{ width: w, height: h }}
         onClick={onClick}
-        whileHover={isPlayable ? { y: -4, scale: 1.02 } : {}}
-        whileTap={isPlayable ? { scale: 0.98 } : {}}
+        whileHover={isPlayable ? { y: -6, scale: 1.03 } : {}}
+        whileTap={isPlayable ? { scale: 0.97 } : {}}
         layout
       >
-        {/* Cost badge */}
-        <div className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-black font-bold text-[11px] shadow-md z-10 font-mono">
-          {card.id === 'lucifer' ? computeLuciferDisplay(card, state) : card.cost}
-        </div>
-
-        {/* Card name */}
-        <div className="pt-1 px-1 text-center truncate text-[9px] font-semibold text-amber-100 mt-4" style={{ fontFamily: 'Cinzel, serif' }}>
-          {card.name}
-        </div>
-
-        {/* Art area */}
-        <div className="flex-1 flex items-center justify-center text-3xl min-h-0">
-          {card.art}
-        </div>
-
-        {/* Type line */}
-        <div className="text-center text-[8px] text-gray-400 px-1 truncate capitalize">
-          {card.type}{card.rarity === 'legendary' ? ' ★' : ''}
-        </div>
-
-        {/* Effect text */}
-        {card.effect && (
-          <div className="px-1 text-center text-[7px] text-gray-300 leading-tight line-clamp-2 min-h-[18px]">
-            {card.effect}
-          </div>
-        )}
-
-        {/* Keywords */}
-        {card.keywords && card.keywords.length > 0 && (
-          <div className="flex justify-center gap-0.5 px-1 pb-0.5">
-            {card.keywords.map((kw) => (
-              <span key={kw} className="text-[7px] px-1 py-0 rounded bg-gray-700/80 text-amber-200 capitalize">
-                {kw}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Stats */}
-        {isCreature && showStats && (
-          <div className="flex justify-between items-center px-1 pb-1">
-            <div className="flex items-center gap-0.5">
-              <span className="text-red-400 text-[10px]">⚔</span>
-              <span className={`font-bold font-mono text-[11px] ${effectiveAttack > (card.baseAttack || card.attack) ? 'text-green-400' : 'text-red-300'}`}>
-                {effectiveAttack}
-              </span>
+        {/* Outer card shape */}
+        <div
+          className={`
+            absolute inset-0 rounded-lg overflow-hidden
+            transition-all duration-150
+            ${!isPlayable && !isOnBattlefield ? 'brightness-50 saturate-50' : ''}
+            ${isPlayable && !isOnBattlefield ? 'brightness-100' : ''}
+            ${isOnBattlefield && isPlayable ? 'brightness-100' : ''}
+            ${isOnBattlefield && !isPlayable && !isValidTarget ? 'brightness-75 saturate-75' : ''}
+            ${isSelected ? 'scale-105' : ''}
+          `}
+          style={{
+            background: 'linear-gradient(145deg, #d4b896 0%, #c4a67a 30%, #b89868 60%, #a88a58 100%)',
+            boxShadow: isSelected
+              ? '0 0 16px rgba(234,179,8,0.7), 0 0 4px rgba(234,179,8,0.5)'
+              : isValidTarget
+              ? '0 0 14px rgba(74,222,128,0.6), 0 0 4px rgba(74,222,128,0.4)'
+              : '0 2px 8px rgba(0,0,0,0.4)',
+          }}
+        >
+          {/* Inner border frame */}
+          <div
+            className="absolute rounded-md"
+            style={{
+              inset: small ? 3 : 4,
+              border: '2px solid #2a2218',
+            }}
+          >
+            {/* Card name */}
+            <div
+              className="text-center px-1 flex items-center justify-center"
+              style={{
+                height: small ? 20 : 26,
+                fontFamily: 'Cinzel, serif',
+                fontSize: small ? 8 : 11,
+                fontWeight: 800,
+                color: '#1a1408',
+                letterSpacing: '0.02em',
+                lineHeight: 1.1,
+              }}
+            >
+              <span className="truncate block w-full">{card.name.toUpperCase()}</span>
             </div>
-            <div className="flex items-center gap-0.5">
-              <span className={`font-bold font-mono text-[11px] ${isDamaged ? 'text-red-400' : effectiveHealth > (card.baseHealth || card.health) ? 'text-green-400' : 'text-green-300'}`}>
-                {effectiveHealth}
-              </span>
-              <span className="text-green-400 text-[10px]">♥</span>
+
+            {/* Image area */}
+            <div
+              className="relative mx-auto overflow-hidden"
+              style={{
+                marginLeft: small ? 4 : 6,
+                marginRight: small ? 4 : 6,
+                height: small ? 68 : 90,
+                border: '1.5px solid #2a2218',
+                background: '#1a1408',
+              }}
+            >
+              {hasImage ? (
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  className="w-full h-full object-cover object-top"
+                  onError={() => setImgError(true)}
+                  loading="lazy"
+                />
+              ) : (
+                <div
+                  className="w-full h-full flex items-center justify-center"
+                  style={{
+                    background: `linear-gradient(180deg, ${factionAccent[card.faction]}40 0%, ${factionAccent[card.faction]}80 100%)`,
+                  }}
+                >
+                  <span style={{ fontSize: small ? 28 : 36 }}>{card.art}</span>
+                </div>
+              )}
+
+              {/* Cost badge - overlaid on image top-left */}
+              <div
+                className="absolute flex items-center justify-center font-mono font-bold"
+                style={{
+                  top: 2,
+                  left: 2,
+                  width: small ? 16 : 20,
+                  height: small ? 16 : 20,
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #d4a04a 0%, #b8860b 100%)',
+                  border: '1.5px solid #1a1408',
+                  fontSize: small ? 9 : 11,
+                  color: '#1a1408',
+                }}
+              >
+                {card.id === 'lucifer' ? computeLuciferDisplay(card, state) : card.cost}
+              </div>
+
+              {/* Weapon indicator on image top-right */}
+              {isOnBattlefield && card.attachedWeapons?.length > 0 && (
+                <div className="absolute top-0.5 right-0.5 flex gap-0.5">
+                  {card.attachedWeapons.map((wp, i) => (
+                    <span
+                      key={i}
+                      className="rounded-sm"
+                      style={{
+                        fontSize: small ? 10 : 12,
+                        background: 'rgba(26,20,8,0.7)',
+                        padding: '0 2px',
+                      }}
+                      title={wp.name}
+                    >
+                      {wp.art}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Type bar */}
+            <div
+              className="text-center flex items-center justify-center"
+              style={{
+                marginLeft: small ? 4 : 6,
+                marginRight: small ? 4 : 6,
+                marginTop: small ? 2 : 3,
+                height: small ? 14 : 18,
+                borderTop: '1.5px solid #2a2218',
+                borderBottom: '1.5px solid #2a2218',
+                fontFamily: 'Cinzel, serif',
+                fontSize: small ? 7 : 9,
+                fontWeight: 700,
+                color: '#1a1408',
+                letterSpacing: '0.1em',
+              }}
+            >
+              {typeLabel}
+              {card.rarity === 'legendary' && ' ★'}
+            </div>
+
+            {/* Effect / info area */}
+            <div
+              className="flex flex-col justify-between"
+              style={{
+                marginLeft: small ? 4 : 6,
+                marginRight: small ? 4 : 6,
+                marginTop: small ? 1 : 2,
+                height: small ? 34 : 44,
+              }}
+            >
+              {/* Effect text or keywords */}
+              <div
+                className="flex-1 overflow-hidden"
+                style={{
+                  fontFamily: 'Crimson Text, serif',
+                  fontSize: small ? 7 : 9,
+                  color: '#2a2218',
+                  lineHeight: 1.3,
+                  textAlign: 'center',
+                  padding: '2px 0',
+                }}
+              >
+                {card.effect ? (
+                  <span>{card.effect}</span>
+                ) : card.keywords?.length > 0 ? (
+                  <span className="italic capitalize">{card.keywords.join(', ')}</span>
+                ) : card.type === 'weapon' ? (
+                  <span>+{card.attack} Attack{card.health > 0 ? `, +${card.health} Health` : ''}</span>
+                ) : null}
+              </div>
+
+              {/* Stats row at bottom-right */}
+              {isCreature && showStats && (
+                <div
+                  className="flex items-center justify-end"
+                  style={{
+                    fontFamily: 'Cinzel, serif',
+                    fontWeight: 800,
+                    fontSize: small ? 9 : 12,
+                    color: '#1a1408',
+                    paddingBottom: 1,
+                  }}
+                >
+                  <span style={{ color: isDamaged ? '#cc3333' : '#1a1408' }}>HP: {effectiveHealth}</span>
+                </div>
+              )}
+
+              {card.type === 'weapon' && (
+                <div
+                  className="flex items-center justify-end"
+                  style={{
+                    fontFamily: 'Cinzel, serif',
+                    fontWeight: 800,
+                    fontSize: small ? 9 : 12,
+                    color: '#1a1408',
+                    paddingBottom: 1,
+                  }}
+                >
+                  +{card.attack}⚔{card.health > 0 && ` +${card.health}♥`}
+                </div>
+              )}
             </div>
           </div>
-        )}
+        </div>
 
-        {/* Weapon stats */}
-        {card.type === 'weapon' && (
-          <div className="flex justify-center items-center gap-1 pb-1">
-            <span className="text-red-300 font-mono text-[10px]">+{card.attack}⚔</span>
-            {card.health > 0 && <span className="text-green-300 font-mono text-[10px]">+{card.health}♥</span>}
-          </div>
-        )}
-
-        {/* Weapon attachment indicator */}
-        {isOnBattlefield && card.attachedWeapons?.length > 0 && (
-          <div className="absolute top-0.5 right-0.5 flex gap-0.5">
-            {card.attachedWeapons.map((w, i) => (
-              <span key={i} className="text-[10px] bg-amber-800/80 rounded px-0.5" title={w.name}>
-                {w.art}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Frozen indicator */}
+        {/* Frozen overlay */}
         {card.frozen && (
-          <div className="absolute inset-0 bg-blue-400/20 rounded-lg flex items-center justify-center">
-            <span className="text-2xl">❄️</span>
+          <div className="absolute inset-0 bg-blue-300/30 rounded-lg flex items-center justify-center pointer-events-none">
+            <span className="text-2xl drop-shadow-lg">❄️</span>
           </div>
+        )}
+
+        {/* Playable glow for hand cards */}
+        {isPlayable && !isOnBattlefield && (
+          <div
+            className="absolute inset-0 rounded-lg pointer-events-none animate-pulse-subtle"
+            style={{
+              boxShadow: `0 0 12px ${factionAccent[card.faction] || '#d4a04a'}55`,
+            }}
+          />
         )}
       </motion.div>
 

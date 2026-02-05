@@ -6,11 +6,14 @@
     "cost": 4,
     "attack": 4,
     "health": 5,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": "When Dean attacks alone, deal +2 damage.",
     "effectType": "passive",
     "flavor": "\"Driver picks the music, shotgun shuts his cakehole.\"",
     "art": "🔫",
+    "image": "/images/cards/dean-winchester.jpg",
     "faction": "hunter",
     "rarity": "legendary"
   },
@@ -21,11 +24,14 @@
     "cost": 4,
     "attack": 3,
     "health": 6,
-    "keywords": ["ward"],
+    "keywords": [
+      "ward"
+    ],
     "effect": "When you play a Spell, draw a card.",
     "effectType": "passive",
     "flavor": "\"I lost my shoe.\"",
     "art": "📚",
+    "image": "/images/cards/sam-winchester.jpg",
     "faction": "hunter",
     "rarity": "legendary"
   },
@@ -41,6 +47,7 @@
     "effectType": "aura",
     "flavor": "\"Idjits.\"",
     "art": "📖",
+    "image": "/images/cards/bobby-singer.jpg",
     "faction": "hunter",
     "rarity": "legendary"
   },
@@ -51,11 +58,14 @@
     "cost": 5,
     "attack": 5,
     "health": 5,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": "Battlecry: Heal your hero for 3.",
     "effectType": "battlecry",
     "flavor": "\"I'm the one who gripped you tight and raised you from perdition.\"",
     "art": "👼",
+    "image": "/images/cards/castiel.jpg",
     "faction": "hunter",
     "rarity": "legendary"
   },
@@ -71,6 +81,7 @@
     "effectType": "passive",
     "flavor": "\"I'm not going to war without my best friend.\"",
     "art": "🎮",
+    "image": "/images/cards/charlie-bradbury.jpg",
     "faction": "hunter",
     "rarity": "uncommon"
   },
@@ -81,11 +92,14 @@
     "cost": 2,
     "attack": 3,
     "health": 2,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"My dad was a hunter. I'm a hunter.\"",
     "art": "🗡️",
+    "image": "/images/cards/jo-harvelle.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -96,11 +110,14 @@
     "cost": 3,
     "attack": 2,
     "health": 4,
-    "keywords": ["taunt"],
+    "keywords": [
+      "taunt"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"Don't you dare tell me that's not my call.\"",
     "art": "🍺",
+    "image": "/images/cards/ellen-harvelle.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -116,6 +133,7 @@
     "effectType": "deathrattle",
     "flavor": "\"Garth, what do you know about vampires?\" \"...lots.\"",
     "art": "🧦",
+    "image": "/images/cards/garth-fitzgerald.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -131,6 +149,7 @@
     "effectType": "passive",
     "flavor": "\"I'm in Advanced Placement.\"",
     "art": "📜",
+    "image": "/images/cards/kevin-tran.jpg",
     "faction": "hunter",
     "rarity": "rare"
   },
@@ -146,6 +165,7 @@
     "effectType": "battlecry",
     "flavor": "\"Donna and I have got this covered.\"",
     "art": "🔰",
+    "image": "/images/cards/jody-mills.jpg",
     "faction": "hunter",
     "rarity": "uncommon"
   },
@@ -161,6 +181,7 @@
     "effectType": null,
     "flavor": "\"I'm retired, Bobby.\"",
     "art": "🎣",
+    "image": "/images/cards/rufus-turner.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -176,6 +197,7 @@
     "effectType": "battlecry",
     "flavor": "\"Business up front, party in the back.\"",
     "art": "💻",
+    "image": "/images/cards/ash.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -186,11 +208,14 @@
     "cost": 2,
     "attack": 2,
     "health": 3,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"I'm not helpless.\"",
     "art": "⚔️",
+    "image": "/images/cards/claire-novak.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -206,6 +231,7 @@
     "effectType": "battlecry",
     "flavor": "\"I'm a Nephilim.\"",
     "art": "✨",
+    "image": "/images/cards/jack-kline.jpg",
     "faction": "hunter",
     "rarity": "legendary"
   },
@@ -216,11 +242,14 @@
     "cost": 3,
     "attack": 3,
     "health": 0,
-    "keywords": ["banish"],
+    "keywords": [
+      "banish"
+    ],
     "effect": "Attached creature has Banish.",
     "effectType": null,
     "flavor": "\"Back in 1835, Samuel Colt made a gun.\"",
     "art": "🔫",
+    "image": "/images/cards/the-colt.jpg",
     "faction": "hunter",
     "rarity": "rare"
   },
@@ -231,11 +260,14 @@
     "cost": 2,
     "attack": 2,
     "health": 0,
-    "keywords": ["exorcise"],
+    "keywords": [
+      "exorcise"
+    ],
     "effect": "Battlecry: Destroy a creature with 3 or less Attack.",
     "effectType": "battlecry",
     "flavor": "\"Where'd you get that?\"",
     "art": "🗡️",
+    "image": "/images/cards/rubys-knife.jpg",
     "faction": "hunter",
     "rarity": "rare"
   },
@@ -251,6 +283,7 @@
     "effectType": null,
     "flavor": "Standard issue angelic weaponry.",
     "art": "⚔️",
+    "image": "/images/cards/angel-blade.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -266,6 +299,7 @@
     "effectType": null,
     "flavor": "\"Kills demons. Pretty handy.\"",
     "art": "🔪",
+    "image": "/images/cards/demon-killing-knife.jpg",
     "faction": "hunter",
     "rarity": "common"
   },
@@ -281,6 +315,7 @@
     "effectType": "targeted",
     "flavor": "\"Vampires don't do well with dead man's blood.\"",
     "art": "🩸",
+    "image": "/images/cards/dead-mans-blood.jpg",
     "faction": "hunter",
     "rarity": "uncommon"
   },
@@ -296,6 +331,7 @@
     "effectType": "aura",
     "flavor": "\"That's my girl.\"",
     "art": "🚗",
+    "image": "/images/cards/impala.jpg",
     "faction": "hunter",
     "rarity": "rare"
   },
@@ -311,6 +347,7 @@
     "effectType": "battlecry",
     "flavor": "\"I'm the King of Hell, darling.\"",
     "art": "👑",
+    "image": "/images/cards/crowley.jpg",
     "faction": "hell",
     "rarity": "legendary"
   },
@@ -326,6 +363,7 @@
     "effectType": "deathrattle",
     "flavor": "\"I'm the very first demon.\"",
     "art": "👁️",
+    "image": "/images/cards/lilith.jpg",
     "faction": "hell",
     "rarity": "legendary"
   },
@@ -336,11 +374,14 @@
     "cost": 4,
     "attack": 5,
     "health": 3,
-    "keywords": ["lifesteal"],
+    "keywords": [
+      "lifesteal"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"Yellow eyes.\"",
     "art": "😈",
+    "image": "/images/cards/azazel.jpg",
     "faction": "hell",
     "rarity": "rare"
   },
@@ -356,6 +397,7 @@
     "effectType": "battlecry",
     "flavor": "\"Miss me, Clarence?\"",
     "art": "💋",
+    "image": "/images/cards/meg-masters.jpg",
     "faction": "hell",
     "rarity": "uncommon"
   },
@@ -366,11 +408,14 @@
     "cost": 6,
     "attack": 6,
     "health": 5,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"I'm a Knight of Hell.\"",
     "art": "🔥",
+    "image": "/images/cards/abaddon.jpg",
     "faction": "hell",
     "rarity": "rare"
   },
@@ -386,6 +431,7 @@
     "effectType": "battlecry",
     "flavor": "\"I'm the best of a bad option.\"",
     "art": "🖤",
+    "image": "/images/cards/ruby.jpg",
     "faction": "hell",
     "rarity": "uncommon"
   },
@@ -401,6 +447,7 @@
     "effectType": "battlecry",
     "flavor": "\"Let's make a deal.\"",
     "art": "✖️",
+    "image": "/images/cards/crossroads-demon.jpg",
     "faction": "hell",
     "rarity": "common"
   },
@@ -411,11 +458,14 @@
     "cost": 3,
     "attack": 4,
     "health": 2,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"You can't outrun a hellhound.\"",
     "art": "🐕",
+    "image": "/images/cards/hellhound.jpg",
     "faction": "hell",
     "rarity": "common"
   },
@@ -431,6 +481,7 @@
     "effectType": "battlecry",
     "flavor": "\"They're everywhere.\"",
     "art": "👿",
+    "image": "/images/cards/demon-horde.jpg",
     "faction": "hell",
     "rarity": "uncommon"
   },
@@ -446,6 +497,7 @@
     "effectType": "instant",
     "flavor": "\"Ten years. Then I come to collect.\"",
     "art": "📃",
+    "image": "/images/cards/soul-deal.jpg",
     "faction": "hell",
     "rarity": "rare"
   },
@@ -461,6 +513,7 @@
     "effectType": "targeted",
     "flavor": "\"Nasty piece of work.\"",
     "art": "👜",
+    "image": "/images/cards/hex-bag.jpg",
     "faction": "hell",
     "rarity": "common"
   },
@@ -476,6 +529,7 @@
     "effectType": "aura",
     "flavor": "\"The throne is mine.\"",
     "art": "🪑",
+    "image": "/images/cards/king-of-hell.jpg",
     "faction": "hell",
     "rarity": "rare"
   },
@@ -491,6 +545,7 @@
     "effectType": "targeted",
     "flavor": "\"Get out of my body!\"",
     "art": "😵",
+    "image": "/images/cards/demonic-possession.jpg",
     "faction": "hell",
     "rarity": "rare"
   },
@@ -506,6 +561,7 @@
     "effectType": "targeted",
     "flavor": "\"Everything comes with a price.\"",
     "art": "🤝",
+    "image": "/images/cards/crossroads-pact.jpg",
     "faction": "hell",
     "rarity": "uncommon"
   },
@@ -516,11 +572,14 @@
     "cost": 4,
     "attack": 4,
     "health": 0,
-    "keywords": ["lifesteal"],
+    "keywords": [
+      "lifesteal"
+    ],
     "effect": "Lifesteal. Attached creature takes 1 damage at end of your turn.",
     "effectType": "passive",
     "flavor": "\"The Mark needs to be fed.\"",
     "art": "🦴",
+    "image": "/images/cards/first-blade.jpg",
     "faction": "hell",
     "rarity": "legendary"
   },
@@ -536,6 +595,7 @@
     "effectType": "battlecry",
     "flavor": "\"I am the Sword of Heaven.\"",
     "art": "⚡",
+    "image": "/images/cards/michael.jpg",
     "faction": "heaven",
     "rarity": "legendary"
   },
@@ -546,11 +606,14 @@
     "cost": 7,
     "attack": 7,
     "health": 7,
-    "keywords": ["lifesteal"],
+    "keywords": [
+      "lifesteal"
+    ],
     "effect": "Costs 1 less for each creature that died this game.",
     "effectType": "passive",
     "flavor": "\"I was God's favorite.\"",
     "art": "🌟",
+    "image": "/images/cards/lucifer.jpg",
     "faction": "heaven",
     "rarity": "legendary"
   },
@@ -561,11 +624,14 @@
     "cost": 6,
     "attack": 5,
     "health": 7,
-    "keywords": ["taunt"],
+    "keywords": [
+      "taunt"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"You should show me some respect.\"",
     "art": "🌩️",
+    "image": "/images/cards/raphael.jpg",
     "faction": "heaven",
     "rarity": "rare"
   },
@@ -581,6 +647,7 @@
     "effectType": "battlecry",
     "flavor": "\"I'm the Trickster!\"",
     "art": "🍭",
+    "image": "/images/cards/gabriel.jpg",
     "faction": "heaven",
     "rarity": "rare"
   },
@@ -596,6 +663,7 @@
     "effectType": "aura",
     "flavor": "\"I've been cleaning up your messes since before you were born.\"",
     "art": "📋",
+    "image": "/images/cards/naomi.jpg",
     "faction": "heaven",
     "rarity": "uncommon"
   },
@@ -606,11 +674,14 @@
     "cost": 4,
     "attack": 3,
     "health": 5,
-    "keywords": ["taunt"],
+    "keywords": [
+      "taunt"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"We are the hosts of Heaven.\"",
     "art": "🛡️",
+    "image": "/images/cards/angel-garrison.jpg",
     "faction": "heaven",
     "rarity": "common"
   },
@@ -626,6 +697,7 @@
     "effectType": "battlecry",
     "flavor": "\"I'm a Cherub!\"",
     "art": "💘",
+    "image": "/images/cards/cupid.jpg",
     "faction": "heaven",
     "rarity": "common"
   },
@@ -636,11 +708,14 @@
     "cost": 5,
     "attack": 4,
     "health": 5,
-    "keywords": ["ward"],
+    "keywords": [
+      "ward"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"A higher order of angel.\"",
     "art": "🕊️",
+    "image": "/images/cards/seraph.jpg",
     "faction": "heaven",
     "rarity": "uncommon"
   },
@@ -656,6 +731,7 @@
     "effectType": "battlecry",
     "flavor": "\"The garrison has arrived.\"",
     "art": "👼",
+    "image": "/images/cards/host-of-heaven.jpg",
     "faction": "heaven",
     "rarity": "uncommon"
   },
@@ -671,6 +747,7 @@
     "effectType": "targeted",
     "flavor": "\"Divine judgment.\"",
     "art": "⚡",
+    "image": "/images/cards/smite.jpg",
     "faction": "heaven",
     "rarity": "uncommon"
   },
@@ -686,6 +763,7 @@
     "effectType": "targeted",
     "flavor": "\"Protected by the grace of God.\"",
     "art": "🛡️",
+    "image": "/images/cards/divine-shield.jpg",
     "faction": "heaven",
     "rarity": "common"
   },
@@ -701,6 +779,7 @@
     "effectType": "instant",
     "flavor": "\"Grace of an angel, freely given.\"",
     "art": "✝️",
+    "image": "/images/cards/angels-grace.jpg",
     "faction": "heaven",
     "rarity": "common"
   },
@@ -716,6 +795,7 @@
     "effectType": "passive",
     "flavor": "\"We are infinite.\"",
     "art": "⛪",
+    "image": "/images/cards/heavenly-host.jpg",
     "faction": "heaven",
     "rarity": "rare"
   },
@@ -731,6 +811,7 @@
     "effectType": "instant",
     "flavor": "\"Purifying flames.\"",
     "art": "🔥",
+    "image": "/images/cards/holy-fire.jpg",
     "faction": "heaven",
     "rarity": "rare"
   },
@@ -741,11 +822,14 @@
     "cost": 3,
     "attack": 3,
     "health": 2,
-    "keywords": ["ward"],
+    "keywords": [
+      "ward"
+    ],
     "effect": "Ward.",
     "effectType": null,
     "flavor": "\"Forged in Heaven's armory.\"",
     "art": "⚔️",
+    "image": "/images/cards/archangels-blade.jpg",
     "faction": "heaven",
     "rarity": "rare"
   },
@@ -761,6 +845,7 @@
     "effectType": null,
     "flavor": "\"More than a hundred years old, and still hunting.\"",
     "art": "🦷",
+    "image": "/images/cards/wendigo.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -771,11 +856,14 @@
     "cost": 4,
     "attack": 3,
     "health": 4,
-    "keywords": ["lifesteal"],
+    "keywords": [
+      "lifesteal"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"Be careful what you wish for.\"",
     "art": "🧞",
+    "image": "/images/cards/djinn.jpg",
     "faction": "neutral",
     "rarity": "uncommon"
   },
@@ -791,6 +879,7 @@
     "effectType": "battlecry",
     "flavor": "\"It could be anyone.\"",
     "art": "🎭",
+    "image": "/images/cards/shapeshifter.jpg",
     "faction": "neutral",
     "rarity": "rare"
   },
@@ -801,11 +890,14 @@
     "cost": 1,
     "attack": 2,
     "health": 1,
-    "keywords": ["rush"],
+    "keywords": [
+      "rush"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"Once they start feeding, it's over.\"",
     "art": "🧟",
+    "image": "/images/cards/rugaru.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -821,6 +913,7 @@
     "effectType": "battlecry",
     "flavor": "\"They hunt in packs.\"",
     "art": "🧛",
+    "image": "/images/cards/vampire-nest.jpg",
     "faction": "neutral",
     "rarity": "uncommon"
   },
@@ -836,6 +929,7 @@
     "effectType": "deathrattle",
     "flavor": "\"Salt and burn the bones.\"",
     "art": "👻",
+    "image": "/images/cards/ghost.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -846,11 +940,14 @@
     "cost": 3,
     "attack": 3,
     "health": 3,
-    "keywords": ["banish"],
+    "keywords": [
+      "banish"
+    ],
     "effect": null,
     "effectType": null,
     "flavor": "\"It's your time.\"",
     "art": "💀",
+    "image": "/images/cards/reaper.jpg",
     "faction": "neutral",
     "rarity": "uncommon"
   },
@@ -866,6 +963,7 @@
     "effectType": "aura",
     "flavor": "\"Nothing crosses a salt line.\"",
     "art": "🧂",
+    "image": "/images/cards/salt-line.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -881,6 +979,7 @@
     "effectType": "targeted",
     "flavor": "\"Double, double, toil and trouble.\"",
     "art": "🧪",
+    "image": "/images/cards/witchs-brew.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -896,6 +995,7 @@
     "effectType": "targeted",
     "flavor": "\"Gotcha.\"",
     "art": "⭐",
+    "image": "/images/cards/devils-trap.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -911,6 +1011,7 @@
     "effectType": "instant",
     "flavor": "\"A bit of extra power.\"",
     "art": "🪙",
+    "image": "/images/cards/the-coin.jpg",
     "faction": "neutral",
     "rarity": "common"
   },
@@ -926,6 +1027,7 @@
     "effectType": null,
     "flavor": "",
     "art": "👿",
+    "image": "/images/cards/demon-token.jpg",
     "faction": "hell",
     "rarity": "common",
     "isToken": true
@@ -942,6 +1044,7 @@
     "effectType": null,
     "flavor": "",
     "art": "👼",
+    "image": "/images/cards/angel-token.jpg",
     "faction": "heaven",
     "rarity": "common",
     "isToken": true
@@ -958,6 +1061,7 @@
     "effectType": null,
     "flavor": "",
     "art": "👼",
+    "image": "/images/cards/angel-token-2-2.jpg",
     "faction": "heaven",
     "rarity": "common",
     "isToken": true
@@ -974,6 +1078,7 @@
     "effectType": null,
     "flavor": "",
     "art": "🧛",
+    "image": "/images/cards/vampire-token.jpg",
     "faction": "neutral",
     "rarity": "common",
     "isToken": true
