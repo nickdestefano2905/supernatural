@@ -7,7 +7,8 @@ export default function CenterDivider() {
   const state = useGameState();
   const { endTurn, cancelSelection } = useGameActions();
 
-  const activePlayerName = state.players[state.activePlayer]?.name;
+  const isAITurn = state.mode === 'ai' && state.activePlayer === 2;
+  const activePlayerName = isAITurn ? 'AI' : state.players[state.activePlayer]?.name;
   const isTargeting = state.targetMode !== null;
 
   let targetModeLabel = '';
@@ -30,9 +31,23 @@ export default function CenterDivider() {
           <div className="text-gray-500 text-[10px]">Turn {state.turn}</div>
         </div>
 
+        {/* AI thinking indicator */}
+        <AnimatePresence>
+          {isAITurn && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="bg-[#0a0a0f] border border-red-700/50 rounded-lg px-3 py-1.5 text-center"
+            >
+              <div className="text-red-300 text-xs animate-pulse">AI Thinking...</div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Target mode indicator */}
         <AnimatePresence>
-          {isTargeting && (
+          {isTargeting && !isAITurn && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -50,16 +65,18 @@ export default function CenterDivider() {
           )}
         </AnimatePresence>
 
-        {/* End Turn button */}
-        <motion.button
-          onClick={endTurn}
-          className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-amber-100 font-bold px-5 py-2 rounded-lg border border-amber-600/50 shadow-lg shadow-amber-900/30 text-sm transition-all"
-          style={{ fontFamily: 'Cinzel, serif' }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          End Turn
-        </motion.button>
+        {/* End Turn button — hidden during AI turn */}
+        {!isAITurn && (
+          <motion.button
+            onClick={endTurn}
+            className="bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-amber-100 font-bold px-5 py-2 rounded-lg border border-amber-600/50 shadow-lg shadow-amber-900/30 text-sm transition-all"
+            style={{ fontFamily: 'Cinzel, serif' }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            End Turn
+          </motion.button>
+        )}
       </div>
     </div>
   );

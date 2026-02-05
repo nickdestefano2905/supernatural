@@ -6,8 +6,8 @@ export function useGameActions() {
   const dispatch = useGameDispatch();
   const state = useGameState();
 
-  const startGame = useCallback(() => {
-    dispatch(actions.startGame());
+  const startGame = useCallback((mode = 'pvp') => {
+    dispatch(actions.startGame(mode));
   }, [dispatch]);
 
   const playCard = useCallback(

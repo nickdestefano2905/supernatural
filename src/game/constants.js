@@ -58,3 +58,8 @@ export const RARITIES = {
   RARE: 'rare',
   LEGENDARY: 'legendary',
 };
+
+export const GAME_MODES = {
+  PVP: 'pvp',
+  AI: 'ai',
+};

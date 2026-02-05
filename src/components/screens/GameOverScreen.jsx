@@ -22,7 +22,10 @@ export default function GameOverScreen() {
 
   const winner = state.players[state.winner];
   const loser = state.players[state.winner === 1 ? 2 : 1];
-  const message = winMessages[Math.floor(Math.random() * winMessages.length)];
+  const isAI = state.mode === 'ai';
+  const playerWon = isAI && state.winner === 1;
+  const playerLost = isAI && state.winner === 2;
+  const message = (playerLost ? loseMessages : winMessages)[Math.floor(Math.random() * (playerLost ? loseMessages : winMessages).length)];
 
   return (
     <motion.div
@@ -55,7 +58,7 @@ export default function GameOverScreen() {
             className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-amber-300 to-amber-600 mb-4"
             style={{ fontFamily: 'Cinzel, serif' }}
           >
-            {winner.name} Wins!
+            {playerWon ? 'You Win!' : playerLost ? 'You Lose!' : `${winner.name} Wins!`}
           </h1>
 
           <p className="text-amber-600/60 text-lg mb-2 italic" style={{ fontFamily: 'Crimson Text, serif' }}>

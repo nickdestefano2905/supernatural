@@ -5,6 +5,7 @@ import { useCardInteraction } from '../../hooks/useCardInteraction.js';
 import { useAnimationQueue } from '../../hooks/useAnimationQueue.js';
 import { useGameState } from '../../game/GameContext.jsx';
 import { useGameActions } from '../../hooks/useGameActions.js';
+import { useAIOpponent } from '../../hooks/useAIOpponent.js';
 import TurnBanner from '../effects/TurnBanner.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,6 +14,7 @@ export default function GameBoard() {
   const { handleHandCardClick, handleBattlefieldCardClick, handleHeroClick, handleEmptyClick } = useCardInteraction();
   const { dismissRevealedCard } = useGameActions();
   const { currentAnimation } = useAnimationQueue();
+  useAIOpponent();
 
   return (
     <div className="relative h-screen flex flex-col bg-[#0a0a0f] overflow-hidden" onClick={handleEmptyClick}>

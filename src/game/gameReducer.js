@@ -46,6 +46,7 @@ import decksData from '../data/decks.json';
 export function createInitialState() {
   return {
     phase: PHASES.TITLE,
+    mode: 'pvp',
     turn: 0,
     activePlayer: 1,
     turnPhase: null,
@@ -84,7 +85,7 @@ function createPlayerState(id, name) {
 export function gameReducer(state, action) {
   switch (action.type) {
     case ACTIONS.START_GAME:
-      return handleStartGame(state);
+      return handleStartGame(state, action.payload?.mode || 'pvp');
     case ACTIONS.PLAY_CARD:
       return handlePlayCard(state, action.payload);
     case ACTIONS.SELECT_ATTACKER:
@@ -98,7 +99,7 @@ export function gameReducer(state, action) {
     case ACTIONS.DISMISS_REVEALED_CARD:
       return { ...state, revealedCard: null };
     case ACTIONS.PLAY_AGAIN:
-      return handleStartGame(createInitialState());
+      return handleStartGame(createInitialState(), state.mode || 'pvp');
     case ACTIONS.CLEAR_ANIMATION:
       return { ...state, animations: state.animations.slice(1) };
     default:
@@ -106,7 +107,7 @@ export function gameReducer(state, action) {
   }
 }
 
-function handleStartGame(state) {
+function handleStartGame(state, mode = 'pvp') {
   resetInstanceIdCounter();
 
   const deck1 = buildDeck(decksData.teamFreeWill.cards, 1);
@@ -136,6 +137,7 @@ function handleStartGame(state) {
   return {
     ...state,
     phase: PHASES.PLAYING,
+    mode,
     turn: 1,
     activePlayer: 1,
     turnPhase: TURN_PHASES.MAIN,

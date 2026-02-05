@@ -47,15 +47,27 @@ export default function TitleScreen() {
           transition={{ delay: 0.8 }}
           className="flex flex-col items-center gap-4"
         >
-          <motion.button
-            onClick={startGame}
-            className="px-10 py-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-amber-100 font-bold text-lg rounded-lg border border-amber-600/50 shadow-xl shadow-amber-900/40 transition-all"
-            style={{ fontFamily: 'Cinzel, serif' }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212, 160, 74, 0.3)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Start Game
-          </motion.button>
+          <div className="flex gap-4">
+            <motion.button
+              onClick={() => startGame('ai')}
+              className="px-8 py-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-amber-100 font-bold text-lg rounded-lg border border-amber-600/50 shadow-xl shadow-amber-900/40 transition-all"
+              style={{ fontFamily: 'Cinzel, serif' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212, 160, 74, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              1 Player
+            </motion.button>
+
+            <motion.button
+              onClick={() => startGame('pvp')}
+              className="px-8 py-4 bg-gradient-to-b from-amber-700 to-amber-900 hover:from-amber-600 hover:to-amber-800 text-amber-100 font-bold text-lg rounded-lg border border-amber-600/50 shadow-xl shadow-amber-900/40 transition-all"
+              style={{ fontFamily: 'Cinzel, serif' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212, 160, 74, 0.3)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              2 Players
+            </motion.button>
+          </div>
 
           <motion.button
             onClick={() => setShowRules(true)}

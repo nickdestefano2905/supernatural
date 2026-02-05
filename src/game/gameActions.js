@@ -12,8 +12,8 @@ export const ACTIONS = {
   CLEAR_ANIMATION: 'CLEAR_ANIMATION',
 };
 
-export function startGame() {
-  return { type: ACTIONS.START_GAME };
+export function startGame(mode = 'pvp') {
+  return { type: ACTIONS.START_GAME, payload: { mode } };
 }
 
 export function playCard(handIndex, playerId) {
